@@ -1,8 +1,6 @@
 import { useForm } from 'react-hook-form';
 
 import {
-  Avatar,
-  AvatarGroup,
   Box,
   Button,
   Container,
@@ -13,6 +11,7 @@ import {
   Heading,
   Icon,
   IconProps,
+  Image,
   Input,
   SimpleGrid,
   Stack,
@@ -20,250 +19,169 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 
-const avatars = [
-  {
-    name: 'Ryan Florence',
-    url: 'https://bit.ly/ryan-florence',
-  },
-  {
-    name: 'Segun Adebayo',
-    url: 'https://bit.ly/sage-adebayo',
-  },
-  {
-    name: 'Kent Dodds',
-    url: 'https://bit.ly/kent-c-dodds',
-  },
-  {
-    name: 'Prosper Otemuyiwa',
-    url: 'https://bit.ly/prosper-baba',
-  },
-  {
-    name: 'Christian Nwamba',
-    url: 'https://bit.ly/code-beast',
-  },
-];
+import Google from './assets/google.svg';
 
-export default function JoinOurTeam() {
+export default function App() {
   const {
     handleSubmit,
     register,
     formState: { errors, isSubmitting },
   } = useForm();
 
-  function onSubmit(values) {
+  function onSubmit() {
     return new Promise((resolve) => {
       setTimeout(() => {
-        alert(JSON.stringify(values, null, 2));
-        resolve();
+        // alert(JSON.stringify(values, null, 2));
+        resolve('ok');
       }, 3000);
     });
   }
   return (
     <Box position="relative">
-      <Container
-        as={SimpleGrid}
-        maxW="7xl"
-        columns={{ base: 1, md: 2 }}
-        spacing={{ base: 10, lg: 32 }}
-        py={{ base: 10, sm: 20, lg: 32 }}
-      >
-        <Stack spacing={{ base: 10, md: 20 }}>
-          <Heading
-            lineHeight={1.1}
-            fontSize={{ base: '3xl', sm: '4xl', md: '5xl', lg: '6xl' }}
-          >
-            Senior web designers{' '}
-            <Text
-              as="span"
-              bgGradient="linear(to-r, red.400,pink.400)"
-              bgClip="text"
-            >
-              &
-            </Text>{' '}
-            Full-Stack Developers
-          </Heading>
-          <Stack direction="row" spacing={4} align="center">
-            <AvatarGroup>
-              {avatars.map((avatar) => (
-                <Avatar
-                  key={avatar.name}
-                  name={avatar.name}
-                  src={avatar.url}
-                  size={useBreakpointValue({ base: 'md', md: 'lg' })}
-                  position="relative"
-                  zIndex={2}
-                  _before={{
-                    content: '""',
-                    width: 'full',
-                    height: 'full',
-                    rounded: 'full',
-                    transform: 'scale(1.125)',
-                    bgGradient: 'linear(to-bl, red.400,pink.400)',
-                    position: 'absolute',
-                    zIndex: -1,
-                    top: 0,
-                    left: 0,
-                  }}
-                />
-              ))}
-            </AvatarGroup>
-            <Text fontFamily="heading" fontSize={{ base: '4xl', md: '6xl' }}>
-              +
-            </Text>
-            <Flex
-              align="center"
-              justify="center"
-              fontFamily="heading"
-              fontSize={{ base: 'sm', md: 'lg' }}
-              bg="gray.800"
-              color="white"
-              rounded="full"
-              minWidth={useBreakpointValue({ base: '44px', md: '60px' })}
-              minHeight={useBreakpointValue({ base: '44px', md: '60px' })}
-              position="relative"
-              _before={{
-                content: '""',
-                width: 'full',
-                height: 'full',
-                rounded: 'full',
-                transform: 'scale(1.125)',
-                bgGradient: 'linear(to-bl, orange.400,yellow.400)',
-                position: 'absolute',
-                zIndex: -1,
-                top: 0,
-                left: 0,
-              }}
-            >
-              YOU
-            </Flex>
-          </Stack>
-        </Stack>
-        <Stack
-          bg="gray.50"
-          rounded="xl"
-          p={{ base: 4, sm: 6, md: 8 }}
-          spacing={{ base: 8 }}
-          maxW={{ lg: 'lg' }}
+      <Container maxW="7xl" py={{ base: 10, sm: 20 }}>
+        <Flex justify="space-between">
+          <Image src="logo" alt="logo" />
+          <Image src={Google} alt="google logo" width="150px" />
+        </Flex>
+        <SimpleGrid
+          columns={{ base: 1, md: 2 }}
+          mt={5}
+          spacing={{ base: 10, lg: 32 }}
+          justifyItems="self-end"
         >
-          <Stack spacing={4}>
+          <Stack spacing={{ base: 10, md: 20 }}>
             <Heading
-              color="gray.800"
               lineHeight={1.1}
-              fontSize={{ base: '2xl', sm: '3xl', md: '4xl' }}
+              fontSize={{ base: '3xl', sm: '4xl', md: '5xl', lg: '6xl' }}
             >
-              Join our team
-              <Text
-                as="span"
-                bgGradient="linear(to-r, red.400,pink.400)"
-                bgClip="text"
-              >
-                !
-              </Text>
+              Accede a Certificados de Carrera de Google
             </Heading>
-            <Text color="gray.500" fontSize={{ base: 'sm', sm: 'md' }}>
-              We’re looking for amazing engineers just like you! Become a part
-              of our rockstar engineering team and skyrocket your career!
-            </Text>
+            <Stack direction="row" spacing={4} align="center">
+              <Text color="gray.500" fontSize={{ base: 'md', sm: 'lg' }}>
+                Programas de formación online flexibles, diseñados para adquirir
+                habilidades profesionales con gran demanda y posibilidades de
+                crecimiento, como soporte de IT, gestión de proyectos, análisis
+                de datos y diseño de experiencia de usuario. Estos programas
+                están disponibles en Coursera.org. No es necesario tener
+                formación o experiencia previa.
+              </Text>
+            </Stack>
           </Stack>
-          <Box mt={10}>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <FormControl isInvalid={errors.name}>
-                <FormLabel htmlFor="name">Nombre Completo</FormLabel>
-                <Input
-                  id="name"
-                  bg="gray.100"
-                  color="gray.500"
-                  _placeholder={{
-                    color: 'gray.500',
-                  }}
-                  {...register('name', {
-                    required: 'This is required',
-                    minLength: {
-                      value: 4,
-                      message: 'Minimum length should be 4',
-                    },
-                  })}
-                />
-                <FormErrorMessage>
-                  {errors.name && errors.name.message}
-                </FormErrorMessage>
-              </FormControl>
-              <FormControl mt="2" isInvalid={errors.email}>
-                <FormLabel htmlFor="email">Email</FormLabel>
-                <Input
-                  id="email"
-                  bg="gray.100"
-                  color="gray.500"
-                  _placeholder={{
-                    color: 'gray.500',
-                  }}
-                  {...register('email', {
-                    required: 'This is required',
-                    minLength: {
-                      value: 4,
-                      message: 'Minimum length should be 4',
-                    },
-                  })}
-                />
-                <FormErrorMessage>
-                  {errors.name && errors.name.message}
-                  {errors.emial && errors.emial.message}
-                </FormErrorMessage>
-              </FormControl>
-              <FormControl mt="2" isInvalid={errors.dni}>
-                <FormLabel htmlFor="dni">Numero de documento</FormLabel>
-                <Input
-                  id="dni"
-                  bg="gray.100"
-                  color="gray.500"
-                  _placeholder={{
-                    color: 'gray.500',
-                  }}
-                  {...register('dni', {
-                    required: 'This is required',
-                    minLength: {
-                      value: 4,
-                      message: 'Minimum length should be 4',
-                    },
-                  })}
-                />
-                <FormErrorMessage>
-                  {errors.dni && errors.dni.messages}
-                </FormErrorMessage>
-              </FormControl>
-              <FormControl mt="2" isInvalid={errors.address}>
-                <FormLabel htmlFor="address">Direccion</FormLabel>
-                <Input
-                  id="address"
-                  bg="gray.100"
-                  color="gray.500"
-                  _placeholder={{
-                    color: 'gray.500',
-                  }}
-                  {...register('address', {
-                    required: 'This is required',
-                    minLength: {
-                      value: 4,
-                      message: 'Minimum length should be 4',
-                    },
-                  })}
-                />
-                <FormErrorMessage>
-                  {errors.address && errors.address.message}
-                </FormErrorMessage>
-              </FormControl>
-              <Button
-                mt={4}
-                colorScheme="teal"
-                isLoading={isSubmitting}
-                type="submit"
+          <Stack
+            bg="gray.50"
+            rounded="xl"
+            p={{ base: 4, sm: 6, md: 8 }}
+            spacing={{ base: 8 }}
+            maxW={{ lg: 'lg' }}
+          >
+            <Stack spacing={4}>
+              <Heading
+                color="gray.800"
+                lineHeight={1.1}
+                fontSize={{ base: '2xl', sm: '3xl', md: '4xl' }}
               >
-                Submit
-              </Button>
-            </form>
-          </Box>
-          form
-        </Stack>
+                ¡Únete a nuestro equipo!
+              </Heading>
+            </Stack>
+            <Box mt={10}>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <FormControl isInvalid={!!errors?.name}>
+                  <FormLabel htmlFor="name">Nombre Completo</FormLabel>
+                  <Input
+                    id="name"
+                    bg="gray.100"
+                    color="gray.500"
+                    _placeholder={{
+                      color: 'gray.500',
+                    }}
+                    {...register('name', {
+                      required: 'This is required',
+                      minLength: {
+                        value: 4,
+                        message: 'Minimum length should be 4',
+                      },
+                    })}
+                  />
+                  <FormErrorMessage>
+                    {String(errors.name?.message)}
+                  </FormErrorMessage>
+                </FormControl>
+                <FormControl mt="2" isInvalid={!!errors.email}>
+                  <FormLabel htmlFor="email">Email</FormLabel>
+                  <Input
+                    id="email"
+                    bg="gray.100"
+                    color="gray.500"
+                    _placeholder={{
+                      color: 'gray.500',
+                    }}
+                    {...register('email', {
+                      required: 'This is required',
+                      minLength: {
+                        value: 4,
+                        message: 'Minimum length should be 4',
+                      },
+                    })}
+                  />
+                  <FormErrorMessage>
+                    {String(errors.name?.message)}
+                  </FormErrorMessage>
+                </FormControl>
+                <FormControl mt="2" isInvalid={!!errors.dni}>
+                  <FormLabel htmlFor="dni">Numero de documento</FormLabel>
+                  <Input
+                    id="dni"
+                    bg="gray.100"
+                    color="gray.500"
+                    _placeholder={{
+                      color: 'gray.500',
+                    }}
+                    {...register('dni', {
+                      required: 'This is required',
+                      minLength: {
+                        value: 4,
+                        message: 'Minimum length should be 4',
+                      },
+                    })}
+                  />
+                  <FormErrorMessage>
+                    {String(errors.dni?.message)}
+                  </FormErrorMessage>
+                </FormControl>
+                <FormControl mt="2" isInvalid={!!errors.address}>
+                  <FormLabel htmlFor="address">Direccion</FormLabel>
+                  <Input
+                    id="address"
+                    bg="gray.100"
+                    color="gray.500"
+                    _placeholder={{
+                      color: 'gray.500',
+                    }}
+                    {...register('address', {
+                      required: 'This is required',
+                      minLength: {
+                        value: 4,
+                        message: 'Minimum length should be 4',
+                      },
+                    })}
+                  />
+                  <FormErrorMessage>
+                    {String(errors.address?.message)}
+                  </FormErrorMessage>
+                </FormControl>
+                <Button
+                  mt={4}
+                  colorScheme="teal"
+                  isLoading={isSubmitting}
+                  type="submit"
+                >
+                  Submit
+                </Button>
+              </form>
+            </Box>
+            form
+          </Stack>
+        </SimpleGrid>
       </Container>
       <Blur
         position="absolute"
