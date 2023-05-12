@@ -19,8 +19,8 @@ export default function App() {
     <Box position="relative">
       <Container maxW="7xl" py={{ base: 10, sm: 20 }}>
         <Flex justify="space-between">
-          <Image src={Logo} alt="logo" width="150px" />
-          <Image src={Google} alt="google logo" width="150px" />
+          <Image src={Logo} alt="logo" width="300px" />
+          <Image src={Google} alt="google logo" width="300px" />
         </Flex>
         <SimpleGrid
           columns={{ base: 1, lg: 2 }}

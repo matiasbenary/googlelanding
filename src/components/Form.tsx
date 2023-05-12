@@ -67,7 +67,7 @@ function Form() {
         mb={6}
         fontSize={{ base: '2xl', sm: '3xl', md: '4xl' }}
       >
-        ¡Únete a nuestro equipo!
+        Completa el formulario para postularte a las becas
       </Heading>
       <FormControl isInvalid={!!errors?.name} isRequired>
         <FormLabel htmlFor="name">Nombre Completo</FormLabel>
@@ -126,6 +126,7 @@ function Form() {
         <Input
           id="address"
           bg="gray.100"
+          type="date"
           color="gray.500"
           _placeholder={{
             color: 'gray.500',
