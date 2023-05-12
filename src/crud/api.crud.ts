@@ -66,6 +66,7 @@ export const getToken = async () => {
       setExpireTokenLocalStorage(res.data);
       token = getHeaderLocalStorage();
     } catch (err) {
+      // eslint-disable-next-line no-console
       console.log(err);
     }
   }
