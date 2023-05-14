@@ -135,6 +135,19 @@ function Form() {
         />
         <FormErrorMessage>{errors.birthday?.message}</FormErrorMessage>
       </FormControl>
+      <FormControl mt="2" isInvalid={!!errors.address} isRequired>
+        <FormLabel htmlFor="address">Dirección</FormLabel>
+        <Input
+          id="address"
+          bg="gray.100"
+          color="gray.500"
+          _placeholder={{
+            color: 'gray.500',
+          }}
+          {...register('address')}
+        />
+        <FormErrorMessage>{errors.address?.message}</FormErrorMessage>
+      </FormControl>
       {errors.root && (
         <Alert status="error">
           <AlertIcon />
