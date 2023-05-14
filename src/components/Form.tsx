@@ -43,8 +43,8 @@ function Form() {
       <Stack justifyContent="center">
         <Alert status="success" variant="left-accent">
           <AlertIcon />
-          Un administrador revisará tu registro y te enviaremos un mail para
-          confirmar tu usuario.
+          Gracias por tu postulación a las becas. Revisaremos tu registro a la
+          brevedad.
         </Alert>
       </Stack>
     );
