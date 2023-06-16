@@ -12,7 +12,7 @@ import {
 import Google from './assets/google.svg';
 import Logo from './assets/logo.png';
 import Blur from './components/Blur';
-import Form from './components/Form';
+import InactiveForm from './components/InactiveForm';
 
 export default function App() {
   return (
@@ -47,7 +47,8 @@ export default function App() {
             </Stack>
           </Stack>
 
-          <Form />
+          {/* <Form /> */}
+          <InactiveForm />
         </SimpleGrid>
       </Container>
       <Blur position="absolute" top={-40} left={-10} />
